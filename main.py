@@ -9,7 +9,7 @@ from keyboards import gl_btn
 
 logging.basicConfig(level=logging.INFO)
 
-BOT_TOKEN = '5627560688:AAEG0Q0UnbwundysWeyIlqA0jZUEGWuXBu8'
+BOT_TOKEN = '5627560688:AAHiup8He9yL_Dlv6AzDQCJ6Ch6a7WIQHJM'
 ADMIN_GROUP_ID = -100671053760
 
 bot = Bot(token=BOT_TOKEN, parse_mode=types.ParseMode.HTML)
@@ -27,3 +27,7 @@ async def start_handler(message: types.Message):
 
     btn = await gl_btn()
     await message.answer('Здравствуйте', reply_markup=btn)
+
+
+if __name__ == '__main__':
+    executor.start_polling(dp, skip_updates=True)

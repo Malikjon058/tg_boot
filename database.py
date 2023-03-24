@@ -19,3 +19,11 @@ class MainDB:
                         effect_name VARCHAR(50),
                         effect VARCHAR(50)
                         )''')
+
+    def add_user(self, user_id: int, username: str):
+        today = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+        with self.con:
+            self.cur.execute("SELECT * FROM users WHERE user_id = ?", (user_id,)).fetchone()
+            if user is None:
+                self.cur.execute("INSERT INTO users (user_id, username, date) VALUES (?, ?, ?)",
+                                 (user_id, username, today))
