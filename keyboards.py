@@ -1,10 +1,11 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
-
-remove = ReplyKeyboardRemove()
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 
-async def gl_btn():
-    btn = ReplyKeyboardMarkup(resize_keyboard=True)
-    btn.row('Дать эффект фото')
-    btn.row('Статистика', 'Связаться с админом!')
-    return btn
+async def gl_btn() -> ReplyKeyboardMarkup:
+    kb = ReplyKeyboardMarkup(resize_keyboard=True)
+    kb.add(
+        KeyboardButton('Отправить фото 📸'),
+        KeyboardButton('Отправить аудио 🎼')
+    )
+
+    return kb
